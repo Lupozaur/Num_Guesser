@@ -8,8 +8,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
         String nickname = scanner.nextLine();
-
         Player player = new Player(nickname);
+
+
 
 
 
