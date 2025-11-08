@@ -1,9 +1,6 @@
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class ScoreManager {
     private Player player;
@@ -17,4 +14,5 @@ public class ScoreManager {
             System.out.println("Error saving score" + e.getMessage());
         }
     }
+
 }

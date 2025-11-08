@@ -21,4 +21,12 @@ public enum MenuOptions {
         }
         return null;
     }
+    public static void displayMenu() {
+        System.out.println("""
+                [1] New Game
+                [2] Load Game
+                [3] Quit
+                """);
+    }
+
 }

@@ -1,26 +1,30 @@
 import java.awt.*;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class GameLogic {
-    private ScoreManager scoreManager;
-    Random rand = new Random();
-    int goalNumber = rand.nextInt(101);
-    int tries = 0;
-    final int MAX_TRIES = 5;
+    private final ScoreManager scoreManager;
+    private final Scanner in;
+    private final Random rand = new Random();
 
-    static void mainLoop(int selection){
-        MenuOptions menu = MenuOptions.getMenu_Option(selection);
-        switch (selection){
-            case NEW_GAME:
+    int goalNumber;
+    int tries;
+    private static final int MAX_TRIES = 5;
 
-        }
+    public GameLogic(ScoreManager scoreManager, Scanner in) {
+        this.scoreManager = scoreManager;
+        this.in = in;
     }
 
-    public void mainGame(Player player) {
-        while(tries < MAX_TRIES){
-            System.out.println("Guess the number between 1 and 100.");
+    public void run(Player player) {
+        boolean gameOver = false;
+        while(!gameOver){
+            MenuOptions.displayMenu();
+            int choice = readInt("Choose option: ");
+            System.out.println("Choose option: ");
             int guess = takeNumber();
+
 
             if(guess == goalNumber){
                 int points = Math.max(0,10 - tries);
@@ -38,8 +42,15 @@ public class GameLogic {
         scoreManager.saveScore(player.getScore());
     }
 
-    static int takeNumber(){
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+    private int readInt(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                return in.nextInt();
+            }catch (InputMismatchException e) {
+                in.nextLine();
+                System.out.print("Invalid input! Please try again.");
+            }
+        }
     }
 }

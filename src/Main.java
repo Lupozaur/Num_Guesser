@@ -22,12 +22,4 @@ public class Main {
 
 
     }
-
-    static void DisplayMenu() {
-        System.out.println("""
-                [1] New Game
-                [2] Load Game
-                [3] Quit
-                """);
-    }
 }
