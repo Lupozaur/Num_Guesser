@@ -1,6 +1,6 @@
 public enum MenuOptions {
     NEW_GAME(1),
-    LOAD_GAME(2),
+    SCORE(2),
     EXIT(3);
 
     private final int value;
@@ -24,7 +24,7 @@ public enum MenuOptions {
     public static void displayMenu() {
         System.out.println("""
                 [1] New Game
-                [2] Load Game
+                [2] Score
                 [3] Quit
                 """);
     }

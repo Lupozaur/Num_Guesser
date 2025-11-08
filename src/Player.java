@@ -18,6 +18,9 @@ public class Player {
     public Player(String username) {
         this.username = username;
     }
-
+    @Override
+    public String toString() {
+        return username + " (" + score + ")";
+    }
 
 }
