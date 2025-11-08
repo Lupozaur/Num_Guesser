@@ -2,12 +2,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameLogic {
+    private Player player;
     Random rand = new Random();
 
     int goalNumber = rand.nextInt(101);
-    Player player;
     int tries = 0;
-    player.setScore(100);
+
 
     public int mainLoop(){
 
